@@ -1,0 +1,72 @@
+<div>
+  {{#with main}}
+    <main>
+      <section>
+        {{> title data="Work history" big=false}}
+        <div>
+          <ul>
+            {{#each works}}
+              <li>
+                <div>{{position}}</div>
+                <br>
+                <div>
+                  {{duration.from}}
+                  -
+                  {{#if duration.to}}
+                    {{duration.to}}
+                  {{else}}
+                    (досі працюємо)
+                  {{/if}}
+                </div>
+                <br>
+                <br>
+                {{#if company}}
+                  {{#if company.url}}
+                    <div>{{> link text=company.name href=company.url blank=true noLine=false}}</div>
+                  {{else}}
+                    <div><b>{{company.name}}</b></div>
+                  {{/if}}
+                {{/if}}
+                <br>
+                <br>
+                <div>
+                  <strong>Projects ({{projectAmount}})</strong>
+                </div>
+                <br>
+                <ul>
+                  {{#each projects}}
+                    <li>
+                      <div>{{> link text.name href=url blank=true noLine=false}}</div>
+                      <div>
+                        <p>{{about}}</p>
+                      </div>
+                      <br>
+                      <div>
+                        <em>Project stacks ({{stackAmount}})</em>
+                        <ul>
+                          {{#each stacks}}
+                            <li>{{name}}</li>
+                          {{/each}}
+                        </ul>
+                      </div>
+                      <br>
+                      <div>
+                        <em>Project awards</em>
+                        <ul>
+                          {{#each awards}}
+                            <li>{{name}}</li>
+                          {{/each}}
+                        </ul>
+                      </div>
+                    </li>
+                    <br>
+                  {{/each}}
+                </ul>
+              </li>
+            {{/each}}
+          </ul>
+        </div>
+      </section>
+    </main>
+  {{/with}}
+</div>
