@@ -1,12 +1,17 @@
 <h1>Person Information</h1>
 <hr>
 
+
+=======
+<br>
+
 <div>
   <h2>Person</h2>
     <p><b>Name:</b> {{person.name}}</p>
     <p><b>Age:</b> {{person.age}}</p>
     <p><b>Gender:</b> {{person.gender}}</p>
 </div>
+
 <hr>
 
 <div>
@@ -21,6 +26,24 @@
 </div>
 <hr>
 
+=======
+<br>
+<hr>
+<br>
+<div>
+  <h2>Address</h2>
+  <Address>
+    <p><b>Street:</b> {{person.address.street}}</p>
+    <p><b>City:</b> {{person.address.city}}</p>
+    <p><b>State:</b> {{person.address.state}}</p>
+    <p><b>ZIP:</b> {{person.address.zip}}</p>
+    <p><b>Country:</b> {{person.address.country}}</p>
+  </Address>
+</div>
+<br>
+<hr>
+<br>
+
 <div>
   <h2>Education</h2>
     <p><b>Degree:</b> {{person.education.[0].degree}}</p>
@@ -28,7 +51,13 @@
     <p><b>University:</b> {{person.education.[0].university}}</p>
     <p><b>Graduation Year:</b> {{person.education.[0].graduationYear}}</p>
 </div>
+
 <hr>
+
+=======
+<br>
+<hr>
+<br>
 
 <div>
   <h2>Work Experience</h2>
@@ -39,13 +68,23 @@
     <p><b>Responsibilities:</b></p>
   <ul>
     {{#each person.workExperience.[0].responsibilities}}
+
     <li>{{this}}</li>
+=======
+      <li>{{this}}</li>
+
     {{/each}}
   </ul>
     <p><b>Year Founded:</b> {{person.workExperience.[0].year_founded}}</p>
     <p><b>Industry:</b> {{person.workExperience.[0].industry}}</p>
 </div>
+
 <hr>
+
+=======
+<br>
+<hr>
+<br>
 
 <div>
   <h2>Employees</h2>
@@ -53,6 +92,7 @@
     <p><b>Position:</b> {{person.workExperience.[0].employees.[0].position}}</p>
     <p><b>Department:</b> {{person.workExperience.[0].employees.[0].department}}</p>
 </div>
+
 <hr>
 
 <div>
@@ -70,7 +110,33 @@
       <p><b>Title:</b> {{title}}</p>
       {{/each}}
     </div>
+=======
+<br>
+<hr >
+<br>
+<div>
+  <h2>Projects</h2>
+  {{#each person.workExperience.[0].employees.[0].projects}}
+  <div >
+    <p><b>Name:</b> {{name}}</p>
+    <p><b>Description:</b> {{description}}</p>
+    <p><b>Status:</b> {{status}}</p >
+    <br>
+    <hr>
+    <br>
+    <div>
+      <h2>Team Members</h2>
+      {{#each teams.[0].team_members}}
+        <p><b>Name:</b> {{name}}</p>
+        <p><b>Title:</b> {{title}}</p>
+      {{/each}}
+    </div>
+    <br>
+
     <hr>
   </div>
   {{/each}}
 </div>
+
+=======
+
