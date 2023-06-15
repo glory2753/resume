@@ -1,0 +1,118 @@
+<div>
+  <h1>Web Development</h1>
+  <hr>
+
+  <div>
+    <h2>Languages</h2>
+    <ul>
+      {{#each web.languages}}
+      <li>
+        <h3>{{name}} ({{version}})</h3>
+        <p>{{description}}</p>
+
+        {{#if elements}}
+        <h3>Elements</h3>
+        <ul>
+          {{#each elements}}
+          <li>
+            <h5>{{name}}</h5>
+            <p>{{description}}</p>
+
+            {{#if attributes}}
+            <h3>Attributes</h3>
+            <ul>
+              {{#each attributes}}
+              <li>
+                <p><strong>{{name}}</strong>: {{description}}</p>
+              </li>
+              {{/each}}
+            </ul>
+            {{/if}}
+
+          </li>
+          {{/each}}
+        </ul>
+        {{/if}}
+
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+  <hr>
+
+  <div>
+    <h2>CSS</h2>
+    <ul>
+      {{#each web.languages}}
+      {{#if properties}}
+      <li>
+        <h3>{{name}} ({{version}})</h3>
+        <p>{{description}}</p>
+
+        <h3>Properties</h3>
+        <ul>
+          {{#each properties}}
+          <li>
+            <h5>{{name}}</h5>
+            <p>{{description}}</p>
+
+            {{#if values}}
+            <h3>Values</h3>
+            <ul>
+              {{#each values}}
+              <li>
+                <p><strong>{{value}}</strong>: {{description}}</p>
+              </li>
+              {{/each}}
+            </ul>
+            {{/if}}
+
+          </li>
+          {{/each}}
+        </ul>
+
+      </li>
+      {{/if}}
+      {{/each}}
+    </ul>
+  </div>
+  <hr>
+
+  <div>
+    <h2>JavaScript</h2>
+    <ul>
+      {{#each web.languages}}
+      {{#if functions}}
+      <li>
+        <h3>{{name}} ({{version}})</h3>
+        <p>{{description}}</p>
+
+        <h3>Functions</h3>
+        <ul>
+          {{#each functions}}
+          <li>
+            <h5>{{name}}</h5>
+            <p>{{description}}</p>
+
+            {{#if parameters}}
+            <h3>Parameters</h3>
+            <ul>
+              {{#each parameters}}
+              <li>
+                <p><b>{{name}}</b> ({{type}}): {{description}}</p>
+              </li>
+              {{/each}}
+            </ul>
+            {{/if}}
+
+          </li>
+          {{/each}}
+        </ul>
+
+      </li>
+      {{/if}}
+      {{/each}}
+    </ul>
+  </div>
+  <hr>
+</div>
