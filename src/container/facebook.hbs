@@ -1,48 +1,24 @@
 <div style="padding: 20px;">
-  <h1><span class="badge rounded-pill text-bg-primary">{{name}}</span></h1>
+  <h1><span class="badge text-bg-primary">{{name}}</span></h1>
   <br>
-
   {{#each users}}
-  <div>
-    <h2>User: {{name}}</h2>
-    <p><b>Gender:</b> {{gender}}</p>
-    <p><b>Age:</b> {{age}}</p>
+  <h2>User: {{name}}</h2>
+  <p><b>Gender:</b> {{gender}}</p>
+  <p><b>Age:</b> {{age}}</p>
 
-    <h3>Friends</h3>
-    
-    <ul>
-      {{#each friends}}
-      <li>
-        <p><b>Name:</b> {{name}}</p>
-        <p><b>Gender:</b> {{gender}}</p>
-        <p><b>Age:</b> {{age}}</p>
+  <h3>Friends</h3>
+  
+  <ul>
+    {{#each friends}}
+    <li>
+      <p><b>Name:</b> {{name}}</p>
+      <p><b>Gender:</b> {{gender}}</p>
+      <p><b>Age:</b> {{age}}</p>
 
-        {{#if mutual_friends}}
-        <h3>Mutual Friends</h3>
-        <ul>
-          {{#each mutual_friends}}
-          <li>
-            <p><b>Name:</b> {{name}}</p>
-            <p><b>Gender:</b> {{gender}}</p>
-            <p><b>Age:</b> {{age}}</p>
-          </li>
-          {{/each}}
-        </ul>
-        {{/if}}
-      </li>
-      {{/each}}
-    </ul>
-
-    <h3>Groups</h3>
-    <br>
-    {{#each groups}}
-    <div>
-      <h3>Group: {{name}}</h3>
-      <p><b>Description:</b> {{description}}</p>
-
-      <h5>Members</h5>
+      {{#if mutual_friends}}
+      <h3>Mutual Friends</h3>
       <ul>
-        {{#each members}}
+        {{#each mutual_friends}}
         <li>
           <p><b>Name:</b> {{name}}</p>
           <p><b>Gender:</b> {{gender}}</p>
@@ -50,8 +26,28 @@
         </li>
         {{/each}}
       </ul>
-    </div>
+      {{/if}}
+    </li>
     {{/each}}
+  </ul>
+
+  <h3>Groups</h3>
+  {{#each groups}}
+  <div>
+    <h3>Group: {{name}}</h3>
+    <p><b>Description:</b> {{description}}</p>
+
+    <h5>Members</h5>
+    <ul>
+      {{#each members}}
+      <li>
+        <p><b>Name:</b> {{name}}</p>
+        <p><b>Gender:</b> {{gender}}</p>
+        <p><b>Age:</b> {{age}}</p>
+      </li>
+      {{/each}}
+    </ul>
   </div>
+  {{/each}}
   {{/each}}
 </div>
