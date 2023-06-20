@@ -1,0 +1,96 @@
+  <div style="padding: 20px;">
+
+    <div class="card">
+    <div class="card-body">
+
+    <div class="card" style="padding: 10px;"> 
+
+    <div class="card-body">
+
+      <h1>{{heading.main.title}}</h1>
+      <p>{{heading.main.text}}</p>
+      <button type="button" class="btn btn-primary">{{heading.main.button_text.solid}}</button><br>
+      <br>
+      <button type="button" class="btn btn-outline-primary">{{heading.main.button_text.outline}}</button>
+    </div>
+    
+    </div>
+    <br>
+
+    <div class="card" style="padding: 10px;">
+
+    <div class="card-body">
+
+      <h2>{{heading.second.title}}</h2>
+      <p>{{heading.second.text}}</p>
+      <button type="button" class="btn btn-secondary">{{heading.second.button_text.solid}}</button><br>
+      <br>
+      <button type="button" class="btn btn-outline-secondary">{{heading.second.button_text.outline}}</button>
+    </div>
+    </div>
+    <br>
+
+
+    <div class="card" style="padding: 10px;">
+
+    <div class="card-body">
+
+      <h3>{{heading.subblock.title}}</h3>
+      <p>{{heading.subblock.text}}</p>
+      <button type="button" class="btn btn-dark">{{heading.subblock.button_text.solid}}</button><br>
+      <br>
+      <button type="button" class="btn btn-outline-dark">{{heading.subblock.button_text.outline}}</button>
+    </div>
+    </div>
+    </div>
+    </div>
+    <br>
+    <br>
+
+    <div class="card" class="display 1" style="padding: 10px;">
+
+      <h2>{{nested_display.title}}</h2>
+
+      <div class="card-body">
+
+       <div class="card">
+        <div class="card-body">
+  
+    <div class="card-text" class="display 4"><h4>{{nested_display.children_display.title}}</h4></div>
+    <br>
+    <div class="card-text">{{nested_display.children_display.text}}</div>
+    <br>
+    <button type="button" class="btn btn-outline-warning">{{nested_display.children_display.button.text}}</button>
+      </div>
+      </div>   
+      </div>
+      <h6>Sections</h6>
+      <br>
+      <div><button type="button" class="btn btn-info">{{nested_display.button.text}}</button></div>
+      </div>
+      <br>
+      <br>
+
+      <div class="card">
+        <p class="text-uppercase" class="display 1" style="padding: 10px;">{{paragraph.title}}</p>
+        
+        <p class="text-lowercase" class="display 1" style="padding: 10px;">{{paragraph.text}}</p>
+
+        <div>
+        <button type="button" class="btn btn-link" style="padding: 10px;"><a href="{{paragraph.button.url}}">{{paragraph.button.text}}</a></button>
+        </div>
+        <div>
+        <div class="card">
+        <div class="card-body">
+          
+          <ul>
+        {{#each paragraph.list_name}}
+        <li><a href="{{this.url}}">{{this.text}}</a></li>
+        {{/each}}
+          </ul>
+          
+          </div>
+          </div>
+        </div>
+      </div>
+  </div> 
