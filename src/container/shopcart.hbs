@@ -1,0 +1,190 @@
+<main>
+
+  <div class='card mb-5'>
+    <div class='nav nav-tabs'>
+      {{#with navigation}}
+        {{#each links}}
+          <a href={{href}} class='nav-link'>{{text}}</a>
+        {{/each}}
+      {{/with}}
+    </div>
+  </div>
+
+{{!-- кошик --}}
+
+  <div>
+    {{#with header}}
+      <h1>{{title}}</h1>
+      {{#with button}}
+        <div
+          class='btn btn-outline-secondary mb-3'
+          href={{link}}
+        >{{text}}
+        </div>
+      {{/with}}
+    {{/with}}
+  </div>
+  {{!-- ---------------------------- --}}
+  <div class='mb-5'>
+    <hr />
+  </div>
+{{!-- ----------------------------------------- --}}
+{{!-- 4 карти --}}
+
+  {{#each goodsBlock}}
+    <div class='card my-3'>
+      <div class='row'>
+        <img class='col-2' src={{image}} />
+        <div class='col-4 mt-3'>
+          <div><h5>{{name}}</h5></div>
+          <div class='text'>{{description}}</div>
+        </div>
+        {{#with price}}
+          <div class='text col-2 mt-5'>{{title}}:
+            {{value}}</div>
+        {{/with}}
+        <div class='text col-2 mt-5'>{{amount}}</div>
+        <br>
+        <div class='col-2 mt-3 ps-0'>
+          {{#each buttons}}
+            {{#if isPrimary}}
+              <div class='btn btn-primary'>{{text}}</div>
+            {{/if}}
+            <br>
+            {{#if isDanger}}
+              <div
+                class='btn btn-outline-danger'
+              >{{text}}
+              </div>
+            {{/if}}
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  {{/each}}
+{{!-- ----------------------------------------- --}}
+  <div class='my-5'>
+    <hr>
+  </div>
+{{!-- ----------------------------------------- --}}
+
+{{!-- сума замовелння --}}
+
+  {{#with total}}
+    <div class='col-4'>
+      <h2>{{title}}</h2>
+      <h3>{{amount}}</h3>
+      <p>{{delivery}}</p>
+      {{#each buttons}}
+        {{#if isSuccess}}
+          <div
+            class='btn btn-success mb-3'
+            href={{link}}>
+            {{text}}
+          </div>
+        {{/if}}
+        {{#if isOutline}}
+          <div
+            class='btn btn-outline-success'
+            href={{link}}
+          >{{text}}</div>
+        {{/if}}
+      {{/each}}
+    </div>
+  {{/with}}
+
+{{!-- ----------------------------------------- --}}
+  <div class='mt-5'>
+    <hr>
+  </div>
+{{!-- ----------------------------------------- --}}
+
+{{!-- See other products --}}
+
+  {{#with goodsOtherBlock}}
+
+    <div class='text-center mt-5'><h2>{{title}}</h2></div>
+
+    <div class='row'>
+      {{#each cards}}
+        <section class='col-4'>
+          <div class='card'>
+            <img class='card-img-top' src={{image}}>
+            <div class='card-body'>
+              <div class='card-title'>
+                <div class='text'>{{title}}</div>
+              </div>
+              {{#if isHot}}
+                <span
+                  class='badge text-bg-warning rounded-pill col-3'
+                >Hot</span>
+              {{/if}}
+              {{#if idNew}}
+                <span
+                  class='badge text-bg-success rounded-pill col-3'
+                >NEW</span>
+              {{/if}}
+              <p>{{description}}</p>
+            </div>
+          </div>
+        </section>
+      {{/each}}
+    </div>
+  {{/with}}
+
+{{!-- ----------------------------------------- --}}
+  <div class='mt-4 mb-5'>
+    <hr>
+  </div>
+  {{!-- ----------------------------------------- --}}
+
+{{!-- Unlock Premium Content --}}
+
+  <div class='row g-2'>
+    {{#with subscribe}}
+      <div class='card text-bg-secondary mb-4'>
+        <div class='card-body p-1'>
+          <div class='card-title'>
+            <h3>{{header}}</h3>
+          </div>
+          <p>{{description}}</p>
+          {{#each buttons}}
+            <div
+              href={{link}}
+              class='btn btn-primary col-3 mb-2'>
+              {{text}}
+            </div>
+            <br>
+          {{/each}}
+        </div>
+      </div>
+    {{/with}}
+  </div>
+
+{{!-- ----------------------------------------- --}}
+  <div class='mt-4'>
+    <hr>
+  </div>
+{{!-- ----------------------------------------- --}}
+
+{{!-- футер --}}
+
+  <div class="row">
+   {{#each footer}}
+      {{#with this}}      
+        <div class="nav col-2 pm-1">
+        <table class="col-1">
+          <tbody><tr>
+            <td><a href={{[0].link}} class=" nav-link">{{[0].text}}</a></td></tr>
+            <td><a href={{[1].link}} class=" nav-link">Link</a></td></tr>
+            <td><a href={{[2].link}} class=" nav-link">Link</a></td></tr>
+            <td><a href={{[3].link}} class=" nav-link disabled">{{[0].text}}</a></td></tr>
+          </tbody>
+        </table>
+        </div>
+      {{/with}}
+      {{/each}}
+      </table>
+  </div>      
+
+</main>
