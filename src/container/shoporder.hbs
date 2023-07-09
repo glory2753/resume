@@ -10,6 +10,59 @@
     </div>
 </div>
 
+<div class="card mx-3 mt-3">
+    <div class="card-body">
+        <div class="nav">
+            {{#each navigation.links}}
+                <div class="nav-item">
+                    <a href="{{href}}" class="btn btn-link">{{text}}</a>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
+
+<h1 class="ms-3 mt-5">{{header}}</h1>
+
+<div class="nav nav-tabs ms-3">
+        <div class="nav-item">
+            <a class="nav-link active">Всі замовлення</a>
+        </div>
+
+        <div class="nav-item">
+            <a class="nav-link">Гарантія та повернення</a>
+        </div>
+</div>
+
+<div class="row">
+        <div class="col-4">
+            <input class="form-control ms-3 mt-3" placeholder="Placeholder">
+        </div>
+        <div class="col-5 mt-3">
+            <a href="#" class="btn btn-success me-2">Знайти</a>
+            <a href="#" class="btn btn-outline-success me-2">Виділити все</a>
+            <a href="#" class="btn btn-outline-danger">Очистити все</a>
+        </div>    
+</div>
+
+<hr class="mt-4">
+
+<div class="row">
+    <p class="ms-3 mt-3 col-3">№12587463 від 01.01.2023</p>
+    <p class="col-1 mt-3">Сума:</p>
+    <b class="col-2">25 000 ₴</b>
+
+    <div class="card-img">
+</div>
+<b class="ms-3">Виконано</b>
+
+
+
+
+
+
+
+
 
 {{!-- тут --}}
 <div class="my-4"><h1>{{header}}</h1></div>

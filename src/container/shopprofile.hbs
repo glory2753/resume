@@ -1,0 +1,222 @@
+<main>
+  <div class="card mb-5">
+    <div class="nav">
+      {{#each navigation.links}}
+        <div class="nav-item mx-3 mt-2 pb-2">
+          <a href="{{href}}" class="nav-link {{#if @last}}disabled{{/if}}">{{text}}</a>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+
+  {{!-- тут мої замовлення--}}
+
+  <div class="my-4">
+    <h1>{{header}}</h1>
+  </div>
+
+  <div class="purchase">
+  <div class="nav nav-tabs">
+    {{#each purchase.tabs}}
+      {{#if @index}}
+      <div class="nav-item">
+        <a class="nav-link" href="#">{{this}}</a>
+      </div>
+      {{else}}
+      <div class="nav-item">
+        <a class="nav-link active" href="#">{{this}}</a>
+      </div>
+      {{/if}}
+    {{/each}}
+  </div>
+
+  <div class="action-block mt-3">
+    <div class="d-flex align-items-center">
+      <input type="text"  placeholder="{{purchase.actionBlock.input.placeholder}}">
+      <div class="buttons mx-3">
+        {{#each purchase.actionBlock.buttons}}
+          <a href="{{link}}" class="btn
+            {{#if isSuccess}}btn-success
+            {{else if isOutline}}btn-outline-primary
+            {{else if isDanger}}btn-danger
+            {{/if}}
+          ">{{text}}</a>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</div>
+{{!-- --------------------------------------- --}}
+ <div class='mb-5'>
+    <hr>
+  </div>
+{{!-- --------------------------------------- --}}
+
+{{!-- три горизонтальні карточки --}}
+ <div class="row">
+  {{#each purchase.itemList}}
+  <div class="col-3">
+    <p>{{number}}</p>
+    <p>{{status}}</p>
+  </div>
+  <div class="col-3">
+   <p>{{amount.title}}:<br> {{amount.value}}</p>
+  </div>
+  <div class="col-4">
+    <img class="item-image" src="{{images.[0]}}">
+  </div>
+  <div class="col-2">
+    <a class="btn btn-primary" href="{{button.link}}">{{button.text}}</a>
+  </div>
+
+  <hr class="my-3">
+  {{/each}}
+  <hr class="my-5">
+
+  {{!-- Особиста інформація --}}
+
+  <h2>{{userInfo.title}}</h2>
+
+   <div class="card mt-3">
+    <h3>{{userInfo.profileData.title}}</h3>
+   
+      
+      <div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="row mt-2">
+        <p class="col-4 text-center">{{userInfo.profileData.fullName.surname.title}}:<br> <b>{{userInfo.profileData.fullName.surname.value}}</b></p>
+        <p class="col-4 text-center">{{userInfo.profileData.fullName.name.title}}:<br> <b>{{userInfo.profileData.fullName.name.value}}</b></p>
+        <p class="col-4 text-center">{{userInfo.profileData.fullName.middleName.title}}:<br> <b>{{userInfo.profileData.fullName.middleName.value}}</b></p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-12 my-2">
+    <div class="card">
+      <div class="row mt-2">
+        <p class="col-4 text-center">{{userInfo.profileData.otherInfo.birthday.title}}:<br> <b>{{userInfo.profileData.otherInfo.birthday.value}}</b></p>
+        <p class="col-4 text-center">{{userInfo.profileData.otherInfo.sex.title}}:<br> <b>{{userInfo.profileData.otherInfo.sex.value}}</b></p>
+        <p class="col-4 text-center">{{userInfo.profileData.otherInfo.language.title}}:<br> <b> {{userInfo.profileData.otherInfo.language.value}}</b></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 my-2">
+<div class="card">
+  <div class="row">
+    {{#each userInfo.buttons}}
+    <div class="col-4 text-center my-2">
+      <button class="btn btn-primary" type="button" {{#if isSecondary}}style="background-color: #808080;"{{else if isDanger}}style="background-color: #FF0000;"{{/if}}>{{text}}</button>
+    </div>
+    {{/each}}
+  </div>
+  </div>
+</div>
+</div> 
+
+</div>
+
+</div>
+
+</div>
+
+     
+    </div>
+    </div>
+     
+  </div>
+  
+ 
+
+</div>
+{{!-- отримувачі --}}
+
+<div class="card mt-3">
+  
+  <h3 class="mt-2 ms-3">{{userInfo.recipients.title}}</h3>
+<br>
+<div class="row">
+  
+  {{#each userInfo.recipients.users}}
+  <div class="col-4 ms-2 mb-2">
+    <div class="card">
+      <h6 class="m-1">{{this.name}}</h6>
+      <p class="m-1">{{this.phone}}</p>
+      <div class="col-3 ms-5 mb-1">
+      <button href="{{this.button.link}}" type="button" class="btn btn-primary">{{this.button.text}}</button>
+      </div>
+    </div>
+  </div>
+  {{/each}}
+</div>
+</div>
+</div>
+</div>
+</div>
+
+{{!-- контакти --}}
+
+<div class="card mt-3 p-2">
+  <h3 class="mt-2 ms-3">{{userInfo.contacts.title}}</h3>
+  <br>
+  <div class="row">
+    {{#each userInfo.contacts.contactData}}
+    <div class="col-4">
+      <div class="card">
+        <h6 class="m-1">{{this.title}}</h6>
+        <p class="m-1">{{this.value}}</p>
+        <div class="col-3 ms-5 mb-1">
+          <button href="{{this.button.link}}" type="button" class="btn {{#if this.button.isPrimary}}btn-primary{{/if}}{{#if this.button.isSecondary}}btn-outline-secondary{{/if}}{{#if this.button.isDanger}}btn-outline-danger{{/if}}">{{this.button.text}}</button>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</div>
+
+ <hr class="my-5">
+
+ {{!-- футер --}}
+
+
+
+<div class="row">
+  {{#with this}}
+    {{#each footer}}
+      <div class="nav col-2 pm-1">
+        <table class="col-2">
+          <tbody>
+            <tr>
+              <td><a href={{0.0.link}} class="nav-link" style="text-decoration: none;">{{0.text}}</a></td>
+            </tr>
+            <tr>
+              <td><a href={{1.1.link}} class="nav-link" style="text-decoration: none;">{{1.text}}</a></td>
+            </tr>
+            <tr>
+              <td><a href={{2.2.link}} class="nav-link" style="text-decoration: none;">{{2.text}}</a></td>
+            </tr>
+            <tr>
+              <td><a href={{3.3.link}} class="nav-link disabled" style="text-decoration: none;">{{3.text}}</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    {{/each}}
+  {{/with}}
+</div>
+</div>
+
+</div>
+
+
+
+
+
+
+ 
+
+
+
+</main>
+
+ 
