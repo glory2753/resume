@@ -1,0 +1,185 @@
+<main>
+{{!-- меню навігації --}}
+
+  <div class="card mb-4">
+    <div class="nav nav-tabs">
+      {{#with navigation}}
+        {{#with links}}
+          <a
+            href={{0.href}}
+            class="nav-link">{{0.text}}</a>
+          <a
+            href={{1.href}}
+            class="nav-link">{{1.text}}</a>
+          <a
+            href={{2.href}}
+            class="nav-link disabled">{{2.text}}</a>
+        {{/with}}
+      {{/with}}
+    </div>
+  </div>
+
+  <div class="row">
+    {{#with formBlock}}
+      <div class="mt-4"><h1>{{header}}</h1></div>
+      {{#with rating}}
+        <div class="text my-3">{{title}}: {{value}}</div>    
+     {{/with}}
+
+{{!-- NAV розкладка --}}
+
+    {{#with actionBlock}}
+        <div class="col-8">
+        <div class="nav nav-tabs">
+          {{#each tabs}}   
+            {{#if isActive}}
+              <div class='nav-item col-4'>
+                <a class="nav-item nav-link active text-black text-center">
+                  {{text}}</a>
+              </div>
+            {{else}}            
+              <div class='nav-item col-4'>
+                <a class="nav-link ms-4">{{text}}</a>
+              </div>
+            {{/if}}
+          {{/each}}
+        </div>  
+        
+        <div class="my-5">
+          <hr>
+        </div>           
+        
+{{!-- карт=текст=кнопка --}}
+
+        {{#with report}}
+
+        <div class="card p-3">
+        <div class="text mb-2">{{title}}</div>
+        {{#with button}}
+          <div
+            class="btn btn-secondary col-4" href={{link}}>{{text}}
+          </div>
+        {{/with}}
+        </div>
+      {{/with}}
+    {{/with}}
+
+    <div class="my-5">
+      <hr>
+    </div>
+
+    {{!-- три кнопки            --}}
+
+    {{#with feedbackBlock}}
+
+      <div class="text mb-5"><h3>{{title}}</h3>
+      </div>
+      <div>
+      {{#each buttons}}
+        {{#if isWarning}}
+          <div class="btn btn-warning"href={{link}}>{{text}}
+          </div>
+        {{/if}}
+        {{#if isSuccess}}
+          <div class="btn btn-success" href={{link}}>{{text}}
+          </div>
+        {{/if}}
+        {{#if isDanger}}
+          <div class="btn btn-danger" href={{link}}>{{text}}
+          </div>
+        {{/if}}
+      {{/each}}
+      </div>
+    {{/with}}    
+    </div>
+
+    {{!-- карт фото текст   --}}
+
+    <div class="col-4">
+    {{#with goodsInfo}}
+    <div class="card p-3 mb-3">
+      <img src={{photo}}>
+      <div class='text mt-3'><b>{{name}}</b></div>
+      </div>
+      
+
+      <div class="card p-3 mb-3">
+      <div class='text'><b>{{price}}</b>
+      </div>
+      {{#if inMarket}}
+        <div class='text mt-2'>в наявності</div>
+      {{/if}}
+      {{#each buttons}}
+        {{#if isPrimary}}
+          <div class="btn btn-primary my-3" href={{link}}>{{text}}
+          </div>
+        {{/if}}
+        {{#if isSecondary}}
+          <div class="btn btn-secondary" href={{link}}>{{text}}
+          </div>
+        {{/if}}
+      {{/each}}
+      </div>
+
+      <div class="card p-3">
+      {{#with seller}}
+        <div class='text'>{{title}}: <b>{{value}}</b></div>
+      {{/with}}
+      </div>
+      </div>
+    {{/with}}
+  {{/with}}
+  </div>
+  
+  <div class="col-12 my-5">
+    <hr>
+  </div>
+
+  {{!-- відгуки --}}
+    
+{{>reviewItem data=this}}
+
+  {{!-- кард греен --}}
+
+  {{#with service}}
+  <div class="card text-bg-success">
+    <div class="card-body text-center">
+    <h3>{{title}}</h3>
+    <div class="text">{{description}}</div>
+    {{#each buttons}}
+      <div href={{link}}
+        class="btn btn-primary">{{text}}</div>
+    {{/each}}
+    </div>
+    </div>
+  {{/with}}
+  </div>
+  </div>
+
+  <div class="mt-5 mb-2">
+    <hr>
+  </div>
+
+  {{!-- футер --}}
+
+  <div class="row">
+      {{#each footer}}
+      {{#with this}}
+        <div class="nav col-2">
+        <table class="col-1">
+          <tbody><tr>
+          <td><a href={{[0].link}} class=" nav-link">{{[0].text}}</a></td></tr>
+          <td><a href={{[1].link}} class=" nav-link">{{[1].text}}</a></td></tr>
+          <td><a href={{[2].link}} class=" nav-link">{{[2].text}}</a></td></tr>
+          <td><a href={{[3].link}} class=" nav-link disabled">{{[3].text}}</a></td></tr>
+           </tbody>
+           </table>
+           </div>
+        {{/with}}
+        {{/each}}
+      </table>
+      </div>
+
+  
+
+</main>
