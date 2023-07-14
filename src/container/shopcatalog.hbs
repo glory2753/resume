@@ -1,0 +1,381 @@
+<main>
+  {{!-- меню навігаціії в кард --}}
+
+    <div class="card mx-3 mt-3">
+      <div class="card-body">
+        {{#with navigation.links}}
+          <div class="nav">
+            <div class="nav-item">
+              <a href="{{0.href}}" class="nav-link">{{0.text}}</a>
+            </div>
+
+            <div class="nav-item">
+              <a href="{{1.href}}" class="nav-link">{{1.text}}</a>
+            </div>
+
+            <div class="nav-item">
+              <a href="{{1.href}}" class="nav-link disabled">{{1.text}}</a>
+            </div>
+          </div>
+        {{/with}}
+      </div>
+    </div>
+
+{{!-- крихти --}}
+
+    {{#with breadcrumb}}
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb ms-3 mt-5">
+                <li class="breadcrumb-item"><a href="{{0.url}}">{{0.name}}</a></li>
+                <li class="breadcrumb-item"><a href="{{1.url}}">{{1.name}}</a></li>
+                <li class="breadcrumb-item"><a>{{2.name}}</a></li>
+            </ol>
+        </nav>
+    {{/with}}
+
+{{!-- тайтл+3 інпута row--}}
+
+    <h1 class="ms-3 mt-5">{{header}}</h1>
+
+    <div class="row">
+  {{#each sortBlock}}
+  <div class="col-3">
+    <select class="form-select ms-3 mt-5">
+      <option selected>{{placeholder}}</option>
+      {{#each options}}
+      <option value="{{value}}">{{text}}</option>
+      {{/each}}
+    </select>
+  </div>
+  {{/each}}
+</div>
+{{!-- чекбокси --}}
+<div class="container">
+<div class="row">
+    <div class="col-4">
+        {{#with filterBlock.sellers}}
+            <div class="card ms-3 mt-5">
+                <p class="ms-3 mt-2">{{title}}</p>
+
+                {{#with list}}
+                    <div class="form-check ms-3 mb-2">
+                        <input class="form-check-input" type="checkbox">
+                        <label class="form-check-label">{{0.value}}</label>
+                    </div>
+
+                    <div class="form-check ms-3">
+                        <input class="form-check-input" type="checkbox">
+                        <label class="form-check-label">{{1.value}}</label>
+                    </div>
+
+                    <hr class="my-4 mx-3">
+                {{/with}}
+            {{/with}} 
+
+            {{#with filterBlock.brands}}
+                <p class="ms-3">{{title}}</p>
+                <div class="col-10">
+                    <input class="form-control ms-5 " placeholder="{{input.placeholder}}">
+                </div>
+            {{/with}}
+
+            {{#with filterBlock.brands.options}}
+            <div class="form-check ms-3 mt-3">
+                <input class="form-check-input" type="checkbox">
+                <label class="form-check-label">{{0.value}}</label>
+            </div>
+
+            <div class="form-check ms-3">
+                <input class="form-check-input" type="checkbox">
+                <label class="form-check-label">{{1.value}}</label>
+            </div>
+
+            <div class="form-check ms-3">
+                <input class="form-check-input" type="checkbox">
+                <label class="form-check-label">{{2.value}}</label>
+            </div>
+
+            <div class="form-check ms-3">
+                <input class="form-check-input" type="checkbox">
+                <label class="form-check-label">{{3.value}}</label>
+            </div>
+        {{/with}}
+
+        <hr class="my-4 mx-3">
+
+{{!-- --------------------------------------------- --}}
+
+        {{#with filterBlock.price}}
+            <div class="ms-3 mb-3">{{title}}</div>
+
+            {{#with range}}
+            <div class="col-10">
+                <input class="form-control ms-5 my-2" placeholder="{{from}}">
+                <input class="form-control ms-5" placeholder="{{to}}">
+            </div>
+            {{/with}}
+            <div class="row">
+                <div class="co-1">
+                    <a class="btn btn-outline-secondary ms-5 mt-3" href="{{button.link}}">{{button.text}}</a>
+                </div>
+            </div>
+        {{/with}}
+
+        <hr class="mx-3 my-4">
+
+{{!-- чекбокс+тайтл --}}
+
+        {{#with filterBlock.filterList}}
+            <div class="ms-3">{{0.title}}</div>
+
+            <div class="form-check ms-2 mt-3">
+                <input class="form-check-input ms-3" type="checkbox">
+                <label class="form-check-label ms-2">{{0.options.0.value}}</label>
+            </div>
+        {{/with}}
+
+        <hr class="mx-3 my-4">
+
+{{!-- чекбокси+тайтл --}}
+
+        {{#with filterBlock.filterList}}
+            <div class="ms-3">{{1.title}}</div>
+
+          <div class="ms-3 mt-3">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox">
+                <label class="form-check-label">{{1.options.0.value}}</label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox">
+                <label class="form-check-label">{{1.options.1.value}}</label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox">
+                <label class="form-check-label">{{1.options.2.value}}</label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox">
+                <label class="form-check-label">{{1.options.3.value}}</label>
+            </div>
+          </div>
+        {{/with}}
+
+        <hr class="mx-3 my-4">
+
+{{!-- ---------------------------------------------------- --}}
+
+        {{#with filterBlock.filterList}}
+            <div class="ms-3">{{2.title}}</div>
+
+        <div class="ms-1 mt-2">
+          <div class="ms-3 mt-2">
+            <div class="form-check mt-3">
+                <input class="form-check-input">
+                <label class="form-check-label">{{2.options.0.value}}</label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input">
+                <label class="form-check-label">{{2.options.1.value}}</label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input">
+                <label class="form-check-label">{{2.options.2.value}}</label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input">
+                <label class="form-check-label">{{2.options.3.value}}</label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input">
+                <label class="form-check-label">{{2.options.4.value}}</label>
+            </div>
+          </div>
+        </div>
+        {{/with}}
+
+        <hr class="mx-3 my-4">
+{{!-- ---------------------------------------------------- --}}
+
+
+        {{#with filterBlock.filterList}}
+            <div class="ms-3">{{3.title}}</div>
+
+          <div class="ms-3 mt-2">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox">
+                <label class="form-check-label">{{3.options.0.value}}</label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox">
+                <label class="form-check-label">{{3.options.1.value}}</label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox">
+                <label class="form-check-label">{{3.options.2.value}}</label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox">
+                <label class="form-check-label">{{3.options.3.value}}</label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox">
+                <label class="form-check-label">{{3.options.4.value}}</label>
+            </div>
+          </div>
+        {{/with}}
+
+        <hr class="mx-3 my-4">
+
+{{!-- --------------------------------------------------------- --}}
+
+        {{#with filterBlock.filterList}}
+            <div class="ms-3">{{4.title}}</div>
+
+        <div class="mb-4">
+          <div class="ms-3 mt-3">
+            <div class="form-check">
+                <input class="form-check-input">
+                <label class="form-check-label">{{4.options.1.value}}</label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input">
+                <label class="form-check-label">{{4.options.2.value}}</label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input">
+                <label class="form-check-label">{{4.options.3.value}}</label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input">
+                <label class="form-check-label">{{4.options.4.value}}</label>
+            </div>
+            </div>
+        </div>
+        {{/with}}
+        </div>
+    </div>
+
+    
+
+    {{!-- ката товару --}}
+    
+      
+    
+    
+        {{#with goodsList}}
+        {{#each this}}
+        <div class="col-4">
+            <div class="card mt-5">
+                <img src="{{img}}" class="card-img-top">
+
+                <div class="card-title">
+                    {{#if isHot}}
+                    <div class="badge bg-warning rounded-pill">ГАРЯЧЕ!</div>
+                    {{/if}}
+
+                    {{#if isNew}}
+                    <div class="badge bg-primary rounded-pill">Нове!</div>
+                    {{/if}}
+
+                    <div>
+                        {{#if isFast}}
+                        <a class="btn btn-success">Швидка доставка!</a>
+                        {{/if}}
+                    </div>
+
+                    <div>
+                        {{#if isFree}}
+                        <div class="btn btn-secondary">Безкоштовна доставка!</div>
+                        {{/if}}
+                    </div>
+
+                    <h3 class="ms-2 mt-3">{{name}}</h3>
+                    <p>{{review.amount}} {{review.text}}</p>
+                    <b>{{price}}</b>
+                    <p>{{delivery}}</p>
+                    {{#with buttons}}
+                    <a href="{{0.link}}" class="btn btn-primary">{{0.text}}</a>
+                    <div>
+                        <a href="{{1.link}}" class="btn btn-secondary mt-2">{{1.text}}</a>
+                    </div>
+                    {{/with}}
+
+                    {{#each characteristics}}
+                    <ul>
+                        <li>
+                            {{title}} {{value}}
+                        </li>
+                    </ul>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+        {{/each}}
+        {{/with}}
+    
+</div>
+</div>
+
+ 
+    
+
+{{!-- кард грин --}}
+
+    {{#with service}}
+    <div class="card text-bg-success mt-5">
+    <div class="card-body text-center">
+    <h3>{{title}}</h3>
+    <div class="text">{{description}}</div>
+    {{#each buttons}}
+      <div href={{link}}
+        class="btn btn-primary">{{text}}
+      </div>
+    {{/each}}
+    </div>
+    </div>
+  {{/with}}
+  </div>
+  </div>
+
+ {{!-- ------------------------------------------------    --}}
+<div class="col-12 my-5"><hr></div>
+
+{{!-- футер --}}
+
+<div class="row">
+      {{#each footer}}
+      {{#with this}}
+        <div class="nav col-2">
+        <table class="col-1">
+          <tbody><tr>
+          <td><a href={{[0].link}} class=" nav-link">{{[0].text}}</a></td></tr>
+          <td><a href={{[1].link}} class=" nav-link">{{[1].text}}</a></td></tr>
+          <td><a href={{[2].link}} class=" nav-link">{{[2].text}}</a></td></tr>
+          <td><a href={{[3].link}} class=" nav-link disabled">{{[3].text}}</a></td></tr>
+           </tbody>
+        </table>
+      </div>
+      {{/with}}
+      {{/each}}
+      </table>
+  </div>
+
+  
+ 
+</main>
+
