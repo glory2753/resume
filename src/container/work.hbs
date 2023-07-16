@@ -1,6 +1,5 @@
-<div>
+<main>
   {{#with main}}
-    <main>
       <section>
         {{> title data="Work history" big=false}}
         <div>
@@ -30,7 +29,7 @@
                 <br>
                 <br>
                 <div>
-                  <strong>Projects ({{projectAmount}})</strong>
+                  <h3 class="ms-0">Projects ({{projectAmount}})</h3>
                 </div>
                 <br>
                 <ul>
@@ -38,7 +37,7 @@
                     <li>
                       <div>{{> link text.name href=url blank=true noLine=false}}</div>
                       <div>
-                        <p>{{about}}</p>
+                        <b>{{about}}</b>
                       </div>
                       <br>
                       <div>
@@ -67,6 +66,7 @@
           </ul>
         </div>
       </section>
+      {{/with}}
     </main>
-  {{/with}}
-</div>
+  
+
